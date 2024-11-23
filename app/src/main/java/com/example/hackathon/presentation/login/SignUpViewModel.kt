@@ -17,6 +17,7 @@ class SignUpViewModel : ViewModel() {
 
     private val _password = MutableStateFlow("")
     val password : StateFlow<String> get() = _password
+
     // 상태 관리
     private val _isLoading = MutableStateFlow(false)
     val isLoading: StateFlow<Boolean> get() = _isLoading
