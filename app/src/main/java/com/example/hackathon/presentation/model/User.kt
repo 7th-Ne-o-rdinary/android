@@ -1,4 +1,4 @@
-package com.example.hackathon.data
+package com.example.hackathon.presentation.model
 
 data class User(
     val id : Int,

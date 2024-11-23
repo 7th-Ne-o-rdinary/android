@@ -1,4 +1,4 @@
-package com.example.hackathon.data
+package com.example.hackathon.presentation.model
 
 // 하나의 상장 아이템 객체
 data class PrizeCreation(
