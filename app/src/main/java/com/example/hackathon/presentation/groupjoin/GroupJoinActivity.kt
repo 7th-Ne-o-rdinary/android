@@ -1,21 +1,63 @@
 package com.example.hackathon.presentation.groupjoin
 
+import android.content.Intent
 import android.os.Bundle
-import androidx.activity.enableEdgeToEdge
+import android.text.Editable
+import android.text.TextWatcher
+import android.widget.EditText
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.view.ViewCompat
-import androidx.core.view.WindowInsetsCompat
+import androidx.core.content.ContextCompat
 import com.example.hackathon.R
+import com.example.hackathon.databinding.ActivityGroupJoinBinding
+import com.example.hackathon.presentation.groupdetail.GroupDetailActivity
 
 class GroupJoinActivity : AppCompatActivity() {
+    private lateinit var binding: ActivityGroupJoinBinding
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        enableEdgeToEdge()
-        setContentView(R.layout.activity_group_join)
-        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
-            val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
-            v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
-            insets
+        binding = ActivityGroupJoinBinding.inflate(layoutInflater)
+        setContentView(binding.root)
+
+        // EditText 입력 상태 확인
+        val editTexts = listOf(
+            binding.etGroupJoinNum1,
+            binding.etGroupJoinNum2,
+            binding.etGroupJoinNum3,
+            binding.etGroupJoinNum4
+        )
+
+        val textWatcher = object : TextWatcher {
+            override fun afterTextChanged(s: Editable?) {
+                updateButtonState(editTexts)
+            }
+
+            override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {}
+            override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {}
         }
+
+        editTexts.forEach { it.addTextChangedListener(textWatcher) }
+
+        // 버튼 클릭 이벤트
+        binding.mainGroupJoinGroupBtn.setOnClickListener {
+            startActivity(
+                Intent(this, GroupDetailActivity::class.java).apply {
+                    // 필요 시 인텐트에 추가 데이터 전달
+                }
+            )
+        }
+    }
+
+    private fun updateButtonState(editTexts: List<EditText>) {
+        val isAllFilled = editTexts.all { it.text.toString().isNotEmpty() }
+        binding.mainGroupJoinGroupBtn.isEnabled = isAllFilled
+
+        // 텍스트 색상 변경
+        val textColor = if (isAllFilled) {
+            ContextCompat.getColor(this, R.color.black)
+        } else {
+            ContextCompat.getColor(this, R.color.gray_300)
+        }
+        binding.mainGroupJoinGroupBtn.setTextColor(textColor)
     }
 }

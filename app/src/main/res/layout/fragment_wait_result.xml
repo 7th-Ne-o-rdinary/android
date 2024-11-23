@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@color/gray_600">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:src="@drawable/bg_noise"
+            tools:layout_editor_absoluteX="-213dp"
+            tools:layout_editor_absoluteY="176dp" />
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:src="@drawable/bg_wait_result"/>
+
+
+        <ImageView
+            android:id="@+id/iv_group_detail_quiz_logo_simple"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:src="@drawable/ic_logo_simple"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="96dp"/>
+
+        <TextView
+            android:id="@+id/tv_select_award_title"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="3학년 1반 연말시상식"
+            android:textColor="@color/white"
+            style="@style/TextAppearance.Headline2"
+            app:layout_constraintStart_toEndOf="@id/iv_group_detail_quiz_logo_simple"
+            app:layout_constraintTop_toTopOf="parent"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="96dp"/>
+
+        <TextView
+            android:id="@+id/tv_select_award_info1"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="시상 결과가"
+            android:textColor="@color/white"
+            android:textSize="25sp"
+            android:textStyle="bold"
+            app:layout_constraintTop_toBottomOf="@id/iv_group_detail_quiz_logo_simple"
+            app:layout_constraintStart_toStartOf="parent"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="15dp"/>
+        <TextView
+            android:id="@+id/tv_select_award_info2"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="곧 발표됩니다!"
+            android:textColor="@color/white"
+            android:textSize="25sp"
+            android:textStyle="bold"
+            app:layout_constraintTop_toBottomOf="@id/tv_select_award_info1"
+            app:layout_constraintStart_toStartOf="parent"
+            android:layout_marginStart="16dp"/>
+
+        <TextView
+            android:id="@+id/tv_select_award_info3"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="모든 귀빈들이 투표를 마치면 결과가 공개됩니다."
+            style="@style/TextAppearance.Caption1"
+            android:textColor="@color/white"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tv_select_award_info2"
+            android:layout_marginTop="12dp"
+            android:layout_marginStart="16dp"/>
+
+
+
+
+
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/btn_wait_result_check_result"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginEnd="16dp"
+            android:text="투표 종료하기"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            android:layout_marginTop="178dp"
+            android:background="@drawable/bg_active"
+            android:layout_marginBottom="50dp"/>
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</FrameLayout>
