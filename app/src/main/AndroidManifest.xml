@@ -25,6 +25,7 @@
             android:exported="false" />
         <activity
             android:name=".presentation.groupcreation.GroupCreationActivity"
+            android:windowSoftInputMode="adjustPan"
             android:exported="false" />
         <activity
             android:name=".presentation.prizeresult.PrizeResultActivity"
