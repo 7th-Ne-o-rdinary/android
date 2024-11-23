@@ -3,9 +3,6 @@ package com.example.hackathon.presentation.grouplist
 import android.content.Intent
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.view.ViewCompat
-import androidx.core.view.WindowInsetsCompat
-import com.example.hackathon.R
 import com.example.hackathon.databinding.ActivityGroupListBinding
 import com.example.hackathon.presentation.groupcreation.GroupCreationActivity
 
@@ -14,13 +11,17 @@ class GroupListActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        // ViewBinding 초기화
         binding = ActivityGroupListBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
         // 버튼 클릭 시 GroupCreationActivity로 이동
         binding.mainGroupJoinGroupBtn.setOnClickListener {
-            val intent = Intent(this, GroupCreationActivity::class.java)
-            startActivity(intent)
+            startActivity(
+                Intent(this, GroupCreationActivity::class.java).apply {
+                    // 필요 시 인텐트에 추가 데이터 전달
+                }
+            )
         }
     }
 }
