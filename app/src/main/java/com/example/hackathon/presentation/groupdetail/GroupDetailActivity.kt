@@ -1,12 +1,15 @@
 package com.example.hackathon.presentation.groupdetail
 
 import android.os.Bundle
+import android.util.Log
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
+import androidx.appcompat.widget.AppCompatButton
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.hackathon.R
 import com.example.hackathon.databinding.ActivityGroupDetailBinding
+import com.example.hackathon.presentation.model.GroupDetail
 import com.example.hackathon.presentation.model.User
 
 class GroupDetailActivity : AppCompatActivity() {
@@ -16,15 +19,23 @@ class GroupDetailActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        Log.d("GroupDetailActivity", "onCreate called") // 추가된 로그
         binding = ActivityGroupDetailBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
         // Set up RecyclerView and ViewModel
         setupRecyclerView()
         observeViewModel()
+        val fragment_quiz = GroupDetailQuizFragment()
 
         // Initialize button actions
-        setupButtons()
+        val button = findViewById<AppCompatButton>(R.id.btn_group_detail_start_quiz);
+        button.setOnClickListener{
+            supportFragmentManager
+                .beginTransaction()
+                .replace(R.id.fragment_container_group_detail,fragment_quiz)
+                .commit()
+        }
 
         // Fetch participant list from ViewModel
         viewModel.fetchParticipantList("sampleCode")
@@ -43,19 +54,5 @@ class GroupDetailActivity : AppCompatActivity() {
         viewModel.users.observe(this) { users ->
             adapter.updateUsers(users)
         }
-    }
-
-    private fun setupButtons() {
-        // Button to switch to QuizFragment
-        binding.btnGroupDetailStartQuiz.setOnClickListener {
-            showFragment(GroupDetailQuizFragment())
-        }
-    }
-
-    private fun showFragment(fragment: Fragment) {
-        val transaction = supportFragmentManager.beginTransaction()
-        transaction.replace(R.id.fragment_container, fragment)
-        transaction.addToBackStack(null)
-        transaction.commit()
     }
 }
