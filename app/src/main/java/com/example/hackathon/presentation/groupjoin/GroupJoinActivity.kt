@@ -42,7 +42,7 @@ class GroupJoinActivity : AppCompatActivity() {
         binding.mainGroupJoinGroupBtn.setOnClickListener {
             startActivity(
                 Intent(this, GroupDetailActivity::class.java).apply {
-                    // 필요 시 인텐트에 추가 데이터 전달
+                    // 해당하는 그룹에 대한 퀴즈 참여 페이지로 이동할 수 있는 Api 연결 필요
                 }
             )
         }

@@ -8,15 +8,9 @@
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:background="@drawable/bg_noise">
 
-
-        <ImageView
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:src="@drawable/bg_noise"
-            tools:layout_editor_absoluteX="-213dp"
-            tools:layout_editor_absoluteY="176dp" />
 
         <ImageView
             android:layout_width="match_parent"
@@ -81,11 +75,6 @@
             app:layout_constraintTop_toBottomOf="@id/tv_select_award_info2"
             android:layout_marginTop="12dp"
             android:layout_marginStart="16dp"/>
-
-
-
-
-
 
         <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/btn_wait_result_check_result"
