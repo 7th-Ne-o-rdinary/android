@@ -1,5 +1,6 @@
 package com.example.hackathon.presentation.login
 
+import android.util.Log
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.hackathon.data.UserRepository
@@ -8,8 +9,7 @@ import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.launch
 
 class LoginViewModel : ViewModel() {
-
-    private val userRepository = UserRepository()
+    private val userRepository = UserRepository.getInstance()
 
     private val _email = MutableStateFlow("")
     val email: StateFlow<String> = _email
@@ -37,18 +37,27 @@ class LoginViewModel : ViewModel() {
         viewModelScope.launch {
             _loginState.value = LoginState.Loading
             val result = userRepository.login(_email.value, _password.value)
-            result.onSuccess {
-                _loginState.value = LoginState.Success("로그인 성공!")
-            }.onFailure { error ->
-                _loginState.value = LoginState.Error(error.message ?: "로그인 실패")
-            }
+            result
+                .onSuccess {
+                    _loginState.value = LoginState.Success("로그인 성공!")
+                }.onFailure { error ->
+                    Log.d("yenni", "error : $error")
+                    _loginState.value = LoginState.Error(error.message ?: "로그인 실패")
+                }
         }
     }
 
     sealed class LoginState {
         object Idle : LoginState()
+
         object Loading : LoginState()
-        data class Success(val message: String) : LoginState()
-        data class Error(val error: String) : LoginState()
+
+        data class Success(
+            val message: String,
+        ) : LoginState()
+
+        data class Error(
+            val error: String,
+        ) : LoginState()
     }
 }
