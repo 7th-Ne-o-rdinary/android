@@ -45,16 +45,17 @@
         android:id="@+id/et_group_creation_room_name"
         android:layout_width="0dp"
         android:layout_height="56dp"
+        android:layout_marginStart="44dp"
+        android:layout_marginTop="5dp"
+        android:layout_marginEnd="44dp"
         android:background="@drawable/bg_input_box_default"
-        android:hint="너디너리 함께해 고마워"
+        android:hint="시상식의 이름을 입력해주세요"
         android:textAlignment="center"
         android:textColorHint="@color/gray_200"
-        app:layout_constraintTop_toBottomOf="@id/tv_group_creation_room_name_title"
-        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        android:layout_marginTop="5dp"
-        android:layout_marginStart="44dp"
-        android:layout_marginEnd="44dp"/>
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tv_group_creation_room_name_title" />
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recycler_group_creation_prize"

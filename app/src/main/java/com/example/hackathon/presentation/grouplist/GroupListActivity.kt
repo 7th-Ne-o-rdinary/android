@@ -5,6 +5,7 @@ import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import com.example.hackathon.databinding.ActivityGroupListBinding
 import com.example.hackathon.presentation.groupcreation.GroupCreationActivity
+import com.example.hackathon.presentation.groupjoin.GroupJoinActivity
 
 class GroupListActivity : AppCompatActivity() {
     private lateinit var binding: ActivityGroupListBinding
@@ -16,9 +17,18 @@ class GroupListActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         // 버튼 클릭 시 GroupCreationActivity로 이동
-        binding.mainGroupJoinGroupBtn.setOnClickListener {
+        binding.mainGroupMakeGroupBtn.setOnClickListener {
             startActivity(
                 Intent(this, GroupCreationActivity::class.java).apply {
+                    // 필요 시 인텐트에 추가 데이터 전달
+                }
+            )
+        }
+
+        // 버튼 클릭 시 GroupCreationActivity로 이동
+        binding.mainGroupJoinGroupBtn.setOnClickListener {
+            startActivity(
+                Intent(this, GroupJoinActivity::class.java).apply {
                     // 필요 시 인텐트에 추가 데이터 전달
                 }
             )
