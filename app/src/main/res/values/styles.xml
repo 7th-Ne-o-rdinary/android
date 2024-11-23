@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Display Styles -->
+    <style name="TextAppearance.Display1.Bold">
+        <item name="android:fontFamily">@font/pretendard_bold</item>
+        <item name="android:textSize">24sp</item>
+    </style>
+    <style name="TextAppearance.Display2.Medium">
+        <item name="android:fontFamily">@font/pretendard_medium</item>
+        <item name="android:textSize">24sp</item>
+    </style>
+
+    <!-- Headline Styles -->
+    <style name="TextAppearance.Headline1.Bold">
+        <item name="android:fontFamily">@font/pretendard_bold</item>
+        <item name="android:textSize">20sp</item>
+    </style>
+    <style name="TextAppearance.Headline2.Bold">
+        <item name="android:fontFamily">@font/pretendard_bold</item>
+        <item name="android:textSize">16sp</item>
+    </style>
+
+    <!-- Body Styles -->
+    <style name="TextAppearance.Body1.Medium">
+        <item name="android:fontFamily">@font/pretendard_medium</item>
+        <item name="android:textSize">16sp</item>
+    </style>
+
+    <!-- Caption Styles -->
+    <style name="TextAppearance.Caption1.Medium">
+        <item name="android:fontFamily">@font/pretendard_medium</item>
+        <item name="android:textSize">12sp</item>
+    </style>
+    <style name="TextAppearance.Caption2.Medium">
+        <item name="android:fontFamily">@font/pretendard_medium</item>
+        <item name="android:textSize">10sp</item>
+    </style>
+</resources>
