@@ -5,28 +5,81 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background = "@color/gray_600"
     tools:context=".presentation.grouplist.GroupListActivity">
 
-    <Button
-        android:id="@+id/main_group_join_group_btn"
-        android:layout_width="200dp"
-        android:layout_height="50dp"
-        android:text="방 생성"
-        android:textSize="20sp"
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:scaleType="fitXY"
+        android:src="@drawable/bg_noise"
+        tools:layout_editor_absoluteX="0dp"
+        tools:layout_editor_absoluteY="-70dp" />
+
+    <TextView
+        android:id="@+id/tv_group_list_ment1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="시상식에 가실 준비 되셨나요?"
+        android:textSize="24sp"
+        android:textColor="@color/white"
+        android:fontFamily="@font/pretendard_bold"
+        android:layout_marginStart="16dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginTop="62dp"/>
+
+    <TextView
+        android:id="@+id/tv_group_list_ment2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="시상식을 생성해서 공유하거나\n시상식에 바로 참여해보세요!  "
+        android:textSize="12sp"
+        android:textColor="@color/white"
+        android:fontFamily="@font/pretendard_bold"
+        android:layout_marginStart="16dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tv_group_list_ment1"
+        android:layout_marginTop="12dp"/>
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/bg_group_list"
+        app:layout_constraintTop_toBottomOf="@id/tv_group_list_ment2"
+        android:layout_marginTop="100dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"/>
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/main_group_make_group_btn"
+        android:layout_width="0dp"
+        android:layout_height="56dp"
+        android:text="시상식 생성하기"
+        android:textSize="16sp"
+        android:background="@drawable/btn_default_yellow"
+        android:layout_marginStart="15dp"
+        android:layout_marginEnd="15dp"
+        android:layout_marginBottom="15dp"
+        android:fontFamily="@font/pretendard_bold"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintBottom_toTopOf="@id/main_group_make_group_btn"/>
+        app:layout_constraintBottom_toTopOf="@id/main_group_join_group_btn"/>
 
-    <Button
-        android:id="@+id/main_group_make_group_btn"
-        android:layout_width="200dp"
-        android:layout_height="50dp"
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/main_group_join_group_btn"
+        android:layout_width="0dp"
+        android:layout_height="56dp"
         android:text="방 참여하기"
-        android:textSize="20sp"
+        android:textSize="16sp"
+        android:background="@drawable/btn_default_white"
+        android:layout_marginStart="15dp"
+        android:layout_marginEnd="15dp"
+        android:fontFamily="@font/pretendard_bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        android:layout_marginBottom="60dp"/>
+        android:layout_marginBottom="35dp"/>
 
 
 
