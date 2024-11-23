@@ -10,7 +10,6 @@ android {
     buildFeatures {
         viewBinding = true
         dataBinding = true
-
     }
 
     defaultConfig {
@@ -55,4 +54,7 @@ dependencies {
     implementation(libs.retrofit2.kotlinx.serialization.converter)
     implementation(libs.glide)
     implementation(libs.kotlinx.coroutines.android)
+    implementation("com.squareup.retrofit2:converter-gson:2.9.0")
+    implementation("org.jetbrains.kotlinx:kotlinx-coroutines-retrofit:1.7.3")
+    implementation("androidx.datastore:datastore-preferences:1.0.0")
 }
