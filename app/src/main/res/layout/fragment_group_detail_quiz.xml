@@ -5,7 +5,8 @@
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".presentation.groupdetail.GroupDetailQuizFragment"
-    android:background="@color/gray_600">
+    android:background="@color/gray_600"
+    android:id="@+id/fragment_container_group_detail_quiz">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
