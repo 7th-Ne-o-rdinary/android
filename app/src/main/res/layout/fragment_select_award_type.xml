@@ -8,17 +8,8 @@
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
-
-
-        <ImageView
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:src="@drawable/bg_noise"
-            tools:layout_editor_absoluteX="-213dp"
-            tools:layout_editor_absoluteY="176dp" />
-
-
+        android:layout_height="match_parent"
+        android:background="@drawable/bg_noise">
 
         <ImageView
             android:id="@+id/iv_group_detail_quiz_logo_simple"
@@ -79,12 +70,15 @@
             android:layout_marginStart="16dp"/>
 
         <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recycler_award_type_list"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             app:layout_constraintTop_toBottomOf="@id/tv_select_award_info3"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             android:layout_marginTop="46dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginEnd="16dp"
             tools:listitem="@layout/fragment_award_type_list_item"
             tools:itemCount="2"/>
 

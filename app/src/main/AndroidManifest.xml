@@ -31,7 +31,8 @@
             android:exported="false" />
         <activity
             android:name=".presentation.prizeresult.PrizeResultActivity"
-            android:exported="false" />
+            android:exported="false" >
+        </activity>
         <activity
             android:name=".presentation.login.LoginActivity"
             android:exported="false" />

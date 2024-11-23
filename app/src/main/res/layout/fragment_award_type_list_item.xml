@@ -5,13 +5,27 @@
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <ImageView
+        android:id="@+id/iv_award_type_list_item_image"
         app:layout_constraintStart_toStartOf="parent"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="335dp"
+        android:layout_height="127.6dp"
         android:src="@drawable/bg_award_type_item"
         app:layout_constraintTop_toTopOf="parent"
         android:layout_marginTop="12dp"
         app:layout_constraintBottom_toBottomOf="parent"
         android:layout_marginBottom="12dp"/>
+
+    <TextView
+        android:id="@+id/iv_award_type_list_item_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="아무시상부문주제"
+        android:fontFamily="@font/pretendard_bold"
+        android:layout_marginEnd="100dp"
+        android:textSize="24dp"
+        app:layout_constraintTop_toTopOf="@id/iv_award_type_list_item_image"
+        app:layout_constraintStart_toStartOf="@id/iv_award_type_list_item_image"
+        app:layout_constraintEnd_toEndOf="@id/iv_award_type_list_item_image"
+        app:layout_constraintBottom_toBottomOf="@id/iv_award_type_list_item_image"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
