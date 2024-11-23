@@ -30,7 +30,7 @@
             android:layout_marginTop="96dp"/>
 
         <TextView
-            android:id="@+id/tv_group_detail_quiz_title"
+            android:id="@+id/tv_select_award_title"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:text="너디너리 연말 시상식"
@@ -46,7 +46,7 @@
             android:layout_width="60dp"
             android:layout_height="30dp"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/tv_group_detail_quiz_title"
+            app:layout_constraintTop_toBottomOf="@id/tv_select_award_title"
             android:layout_marginStart="16dp"
             android:layout_marginTop="18dp">
 
@@ -54,7 +54,7 @@
                 android:id="@+id/iv_group_detail_quiz_mark"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:src="@drawable/bg_award_type" />
+                android:src="@drawable/bg_award_type_item" />
 
             <TextView
                 android:id="@+id/tv_group_detail_quiz_mark"
