@@ -4,7 +4,6 @@ import android.os.Bundle
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
-import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.hackathon.R
 import com.example.hackathon.databinding.ActivityGroupDetailBinding
@@ -27,23 +26,8 @@ class GroupDetailActivity : AppCompatActivity() {
         // Initialize button actions
         setupButtons()
 
-        // Example to add a user manually for testing purposes
-        viewModel.addUser(User(
-            name = "로빈",
-            id = "1"
-        ))
-        viewModel.addUser(User(
-            name = "신구",
-            id = "2"
-        ))
-        viewModel.addUser(User(
-            name = "똘이",
-            id = "2"
-        ))
-        viewModel.addUser(User(
-            name = "상우",
-            id = "2"
-        ))
+        // Fetch participant list from ViewModel
+        viewModel.fetchParticipantList("sampleCode")
     }
 
     private fun setupRecyclerView() {
@@ -55,9 +39,10 @@ class GroupDetailActivity : AppCompatActivity() {
     }
 
     private fun observeViewModel() {
-        viewModel.users.observe(this, Observer { users ->
+        // Observe the users LiveData
+        viewModel.users.observe(this) { users ->
             adapter.updateUsers(users)
-        })
+        }
     }
 
     private fun setupButtons() {
