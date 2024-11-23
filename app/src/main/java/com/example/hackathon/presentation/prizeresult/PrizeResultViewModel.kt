@@ -13,6 +13,13 @@ class PrizeResultViewModel : ViewModel() {
         return repository.isAwardCompleted(code)
     }
 
+    private val _selectedPrizeResult = MutableLiveData<PrizeResult?>()
+    val selectedPrizeResult: LiveData<PrizeResult?> get() = _selectedPrizeResult
+
+    fun selectPrizeResult(result: PrizeResult) {
+        _selectedPrizeResult.value = result
+    }
+
     private val _awardResults = MutableLiveData<List<PrizeResult>>()
     val awardResults: LiveData<List<PrizeResult>> get() = _awardResults
 

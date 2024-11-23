@@ -7,34 +7,45 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.hackathon.R
+import com.example.hackathon.databinding.FragmentAwardTypeListItemBinding
+import com.example.hackathon.presentation.model.PrizeResult
 
 class AwardTypeAdapter(
-    private val awardTypeList: List<AwardType>, // Replace with your data model
-    private val onItemClick: (AwardType) -> Unit // Callback for item click
+    private val onItemClick: (PrizeResult) -> Unit
 ) : RecyclerView.Adapter<AwardTypeAdapter.AwardTypeViewHolder>() {
 
-    data class AwardType(val id: Int, val name: String, val imageResId: Int)
+    private val items = mutableListOf<PrizeResult>()
 
-    inner class AwardTypeViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
-        private val awardImage: ImageView = itemView.findViewById(R.id.iv_award_type_list_item_image)
-        private val awardName: TextView = itemView.findViewById(R.id.iv_award_type_list_item_title)
-
-        fun bind(awardType: AwardType) {
-            awardImage.setImageResource(awardType.imageResId)
-            awardName.text = awardType.name
-            itemView.setOnClickListener { onItemClick(awardType) }
-        }
+    fun submitList(list: List<PrizeResult>) {
+        items.clear()
+        items.addAll(list)
+        notifyDataSetChanged()
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): AwardTypeViewHolder {
-        val view = LayoutInflater.from(parent.context)
-            .inflate(R.layout.fragment_award_type_list_item, parent, false)
-        return AwardTypeViewHolder(view)
+        val binding = FragmentAwardTypeListItemBinding.inflate(
+            LayoutInflater.from(parent.context), parent, false
+        )
+        return AwardTypeViewHolder(binding)
     }
 
     override fun onBindViewHolder(holder: AwardTypeViewHolder, position: Int) {
-        holder.bind(awardTypeList[position])
+        holder.bind(items[position])
     }
 
-    override fun getItemCount(): Int = awardTypeList.size
+    override fun getItemCount() = items.size
+
+    inner class AwardTypeViewHolder(
+        private val binding: FragmentAwardTypeListItemBinding
+    ) : RecyclerView.ViewHolder(binding.root) {
+
+        fun bind(prizeResult: PrizeResult) {
+            binding.ivAwardTypeListItemTitle.text = prizeResult.prize.title
+            binding.root.setOnClickListener {
+                onItemClick(prizeResult)
+            }
+        }
+    }
 }
+
+
