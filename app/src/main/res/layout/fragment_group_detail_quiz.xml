@@ -15,7 +15,7 @@
             android:layout_width="50dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="190dp"
-            android:text="<"
+            android:text="뒤로 가기"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toStartOf="@id/tv_group_detail_quiz_title"
@@ -53,7 +53,7 @@
             app:layout_constraintTop_toBottomOf="@id/tv_group_detail_quiz_title"
             android:layout_marginTop="50dp"
             tools:itemCount="8"
-            tools:listitem="@layout/fragment_group_detail_quiz_user_name_list"/>
+            tools:listitem="@layout/fragment_group_detail_quiz_user_name_list_item"/>
 
         <Button
             android:layout_width="wrap_content"
