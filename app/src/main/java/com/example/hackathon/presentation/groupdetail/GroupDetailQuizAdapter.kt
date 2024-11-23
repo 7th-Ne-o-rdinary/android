@@ -1,5 +1,6 @@
 package com.example.hackathon.presentation.groupdetail
 
+import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
@@ -13,20 +14,26 @@ class GroupDetailQuizAdapter (
     private val onItemClicked:(User)-> Unit
 ) : RecyclerView.Adapter<GroupDetailQuizAdapter.ViewHolder>(){
 
+    // ViewHolder 클래스
     class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
-        val userNameTextView:TextView = itemView.findViewById(R.id.recycler_group_detail_waiting_user_list)
+        val userNameTextView: TextView = itemView.findViewById(R.id.tv_group_detail_waiting_user_name)
     }
 
-    override fun onCreateViewHolder(p0: ViewGroup, p1: Int): GroupDetailQuizAdapter.ViewHolder {
-        TODO("Not yet implemented")
+    // 뷰 홀더 생성
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
+        val view = LayoutInflater.from(parent.context)
+            .inflate(R.layout.fragment_group_detail_quiz_user_name_list_item, parent, false)
+        return ViewHolder(view)
     }
 
-    override fun onBindViewHolder(p0: GroupDetailQuizAdapter.ViewHolder, p1: Int) {
-        TODO("Not yet implemented")
+    // 데이터 바인딩
+    override fun onBindViewHolder(holder: ViewHolder, position: Int) {
+        val user = userList[position]
+        holder.userNameTextView.text = user.name
+        holder.itemView.setOnClickListener { onItemClicked(user) } // 아이템 클릭 이벤트
     }
 
-    override fun getItemCount(): Int {
-        TODO("Not yet implemented")
-    }
+    // 아이템 수 반환
+    override fun getItemCount(): Int = userList.size
 
 }
