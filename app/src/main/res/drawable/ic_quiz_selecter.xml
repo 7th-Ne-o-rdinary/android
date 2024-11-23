@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <!-- 선택 상태일 때 (selected=true) -->
+    <item android:state_selected="true">
+        <shape
+            android:shape="oval">
+            <solid
+                android:color="@color/white"/>
+            <corners
+                android:radius="400dp" />
+            <stroke
+                android:width="2dp"
+                android:color="@color/yellow" />
+        </shape>
+    </item>
+
+    <!-- 기본 상태일 때 -->
+    <item>
+        <shape
+            android:shape="oval">
+            <corners
+                android:radius="400dp" />
+            <stroke
+                android:width="2dp"
+                android:color="@color/white" />
+        </shape>
+    </item>
+
+</selector>
