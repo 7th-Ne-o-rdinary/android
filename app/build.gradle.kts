@@ -10,6 +10,7 @@ android {
     buildFeatures {
         viewBinding = true
         dataBinding = true
+
     }
 
     defaultConfig {
@@ -41,7 +42,7 @@ android {
 }
 
 dependencies {
-
+    implementation("androidx.lifecycle:lifecycle-viewmodel-ktx:2.6.1")
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.appcompat)
     implementation(libs.material)
