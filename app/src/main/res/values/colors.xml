@@ -2,4 +2,27 @@
 <resources>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
+    <!-- Main Color -->
+    <color name="yellow">#FFF5F378</color>
+    <color name="purple">#FFDDC1FF</color>
+    <color name="orange">#FFEC704C</color>
+    <color name="gray">#FF2F2F2F</color>
+    <!-- Sub Color -->
+    <color name="yellow2">#FFAAA94B</color>
+    <!-- Semantic Color -->
+    <color name="error">#FFF04251</color>
+
+    <!-- Gray Scale -->
+    <color name="gray_950">#0F1010</color>
+    <color name="gray_800">#1C1D1E</color>
+    <color name="gray_700">#2C2D2E</color>
+    <color name="gray_600">#3C3D40</color>
+    <color name="gray_500">#606265</color>
+    <color name="gray_400">#808388</color>
+    <color name="gray_300">#989BA0</color>
+    <color name="gray_200">#C0C5C9</color>
+    <color name="gray_100">#CED1D2</color>
+    <color name="gray_50">#EEEFF1</color>
+    <color name="gray_30">#F7F8FA</color>
+    <color name="gray_10">#FCFCFC</color>
 </resources>
