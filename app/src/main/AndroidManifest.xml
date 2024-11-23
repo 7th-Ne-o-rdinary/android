@@ -15,6 +15,15 @@
         android:theme="@style/Theme.Hackathon"
         tools:targetApi="31">
         <activity
+            android:name=".presentation.groupdetail.GroupDetailActivity"
+            android:exported="false" />
+        <activity
+            android:name=".presentation.groupjoin.GroupJoinActivity"
+            android:exported="false" />
+        <activity
+            android:name=".presentation.groupcreation.GroupCreationActivity"
+            android:exported="false" />
+        <activity
             android:name=".presentation.prizeresult.PrizeResultActivity"
             android:exported="false" />
         <activity
