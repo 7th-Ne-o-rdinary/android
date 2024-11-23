@@ -10,6 +10,8 @@ import androidx.lifecycle.lifecycleScope
 import com.example.hackathon.R
 import com.example.hackathon.databinding.ActivityLoginBinding
 import com.example.hackathon.presentation.groupcreation.GroupCreationActivity
+import com.example.hackathon.presentation.groupjoin.GroupJoinActivity
+import com.example.hackathon.presentation.grouplist.GroupListActivity
 import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.launch
 
@@ -73,7 +75,7 @@ class LoginActivity : AppCompatActivity() {
                     }
                     is LoginViewModel.LoginState.Success -> {
                         //Toast.makeText(this@LoginActivity, state.message, Toast.LENGTH_SHORT).show()
-                        val intent = Intent(this@LoginActivity, GroupCreationActivity::class.java)
+                        val intent = Intent(this@LoginActivity, GroupListActivity::class.java)
                         startActivity(intent)
                     }
                     is LoginViewModel.LoginState.Error -> {
