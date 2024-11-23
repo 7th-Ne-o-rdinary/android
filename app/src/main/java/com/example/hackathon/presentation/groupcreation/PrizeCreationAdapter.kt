@@ -7,18 +7,19 @@ import com.example.hackathon.databinding.GroupCreationPrizeItemBinding
 import com.example.hackathon.presentation.model.PrizeCreation
 
 class PrizeCreationAdapter(
-    private val prizes: MutableList<PrizeCreation>
+    private val prizes: MutableList<PrizeCreation> = mutableListOf(
+        PrizeCreation(index = 1, title = "", question = "", description = "")
+    )
 ) : RecyclerView.Adapter<PrizeCreationAdapter.PrizeViewHolder>() {
 
     inner class PrizeViewHolder(val binding: GroupCreationPrizeItemBinding) :
         RecyclerView.ViewHolder(binding.root) {
         fun bind(prize: PrizeCreation) {
-            binding.tvGroupCreationPrizeItemPrizeCountNumber.text = "상장 ${prize.index}"
             binding.etGroupCreationPrizeItemPrizeName.setText(prize.title)
             binding.etGroupCreationPrizeItemQuizDescription.setText(prize.question)
             binding.etGroupCreationPrizeItemPrizeDescription.setText(prize.description)
 
-            // Update the prize when EditText values change
+            // EditText 값 변경 시 Prize 데이터 업데이트
             binding.etGroupCreationPrizeItemPrizeName.setOnFocusChangeListener { _, _ ->
                 prize.title = binding.etGroupCreationPrizeItemPrizeName.text.toString()
             }
@@ -45,6 +46,18 @@ class PrizeCreationAdapter(
     }
 
     override fun getItemCount(): Int = prizes.size
+
+    fun addPrize(prize: PrizeCreation) {
+        prizes.add(prize)
+        notifyItemInserted(prizes.size - 1)
+    }
+
+    fun ensureAtLeastOneItem() {
+        if (prizes.isEmpty()) {
+            prizes.add(PrizeCreation(index = 1, title = "", question = "", description = ""))
+            notifyItemInserted(0)
+        }
+    }
 
     fun updatePrizes(newPrizes: List<PrizeCreation>) {
         prizes.clear()

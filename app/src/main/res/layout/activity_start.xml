@@ -6,7 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".presentation.login.StartActivity"
-    android:background = "@drawable/bg_login"
+    android:background = "@drawable/bg_noise"
     android:backgroundTint="@color/black">
 
 </androidx.constraintlayout.widget.ConstraintLayout>

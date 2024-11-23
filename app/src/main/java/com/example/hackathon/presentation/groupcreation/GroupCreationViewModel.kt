@@ -6,17 +6,29 @@ import androidx.lifecycle.ViewModel
 import com.example.hackathon.presentation.model.PrizeCreation
 
 class GroupCreationViewModel : ViewModel() {
-
     private val _prizes = MutableLiveData<MutableList<PrizeCreation>>(mutableListOf())
     val prizes: LiveData<MutableList<PrizeCreation>> get() = _prizes
 
-    private var prizeIndex = 1
+    init {
+        // 최소 하나의 기본 항목 추가
+        ensureAtLeastOnePrize()
+    }
 
-    fun addPrize(title: String, question: String, description: String) {
+    private fun ensureAtLeastOnePrize() {
+        if (_prizes.value.isNullOrEmpty()) {
+            _prizes.value = mutableListOf(
+                PrizeCreation(index = 1, title = "", question = "", description = "")
+            )
+        }
+    }
+
+    fun addPrize() {
         val currentPrizes = _prizes.value ?: mutableListOf()
-        currentPrizes.add(PrizeCreation(prizeIndex, title, question, description))
+        val newIndex = currentPrizes.size + 1
+        currentPrizes.add(
+            PrizeCreation(index = newIndex, title = "", question = "", description = "")
+        )
         _prizes.value = currentPrizes
-        prizeIndex++
     }
 
     fun updatePrize(updatedPrize: PrizeCreation) {
@@ -26,5 +38,9 @@ class GroupCreationViewModel : ViewModel() {
             currentPrizes[index] = updatedPrize
             _prizes.value = currentPrizes
         }
+    }
+
+    fun getPrizes(): List<PrizeCreation> {
+        return _prizes.value ?: emptyList()
     }
 }
