@@ -11,11 +11,6 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.hackathon.R
 import com.example.hackathon.presentation.model.User
 
-/**
- * A simple [Fragment] subclass.
- * Use the [GroupDetailQuizFragment.newInstance] factory method to
- * create an instance of this fragment.
- */
 class GroupDetailQuizFragment : Fragment() {
     private lateinit var recyclerView: RecyclerView
     private lateinit var adapter: GroupDetailQuizAdapter
